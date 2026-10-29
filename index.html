@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Explore official country-level evidence for national rabies surveillance across 179 countries.">
+  <title>Rabies Surveillance Evidence Observatory</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div><strong data-i18n="siteTitle">Rabies Surveillance Evidence Observatory</strong><small data-i18n="siteSub">Interactive companion to a global study</small></div></div>
+      <button id="langToggleBtn" class="language-button" type="button" aria-label="Switch language">中文</button>
+    </div>
+    <nav class="site-nav container" aria-label="Primary navigation">
+      <button class="nav-btn active" type="button" data-tab="home" data-i18n="navHome">Overview</button>
+      <button class="nav-btn" type="button" data-tab="map" data-i18n="navMap">Global Map</button>
+      <button class="nav-btn" type="button" data-tab="explorer" data-i18n="navExplorer">Country Evidence</button>
+      <button class="nav-btn" type="button" data-tab="mechanisms" data-i18n="navLinkage">Cross-sector Linkage</button>
+      <button class="nav-btn" type="button" data-tab="methods" data-i18n="navMethods">Methods &amp; Interpretation</button>
+      <button class="nav-btn" type="button" data-tab="about" data-i18n="navAbout">About</button>
+    </nav>
+  </header>
+  <main class="container" id="main">
+    <section id="view-home" class="view-section active" aria-labelledby="hero-title">
+      <div class="hero">
+        <div class="eyebrow" data-i18n="heroEyebrow">PUBLIC EVIDENCE EXPLORER</div>
+        <h1 id="hero-title" data-i18n="heroTitle">National rabies surveillance evidence across 179 countries</h1>
+        <p class="lead" data-i18n="heroDesc">Explore the country-level official evidence used to assess human surveillance, animal surveillance, and cross-sector linkage in a global study of rabies surveillance architecture.</p>
+        <span class="cutoff-badge" data-i18n="cutoffBadge">Evidence cutoff: 4 September 2026</span>
+        <div class="hero-actions"><button class="primary-button" id="heroMapBtn" type="button" data-i18n="exploreMap">Explore the map</button><button class="text-button" id="heroExploreBtn" type="button" data-i18n="browseCountries">Browse country evidence →</button></div>
+      </div>
+      <div class="stat-grid" aria-label="Study summary">
+        <div class="stat-card"><div class="stat-value">179</div><div class="stat-label" data-i18n="kpiCountries">Countries</div></div>
+        <div class="stat-card human"><div class="stat-value">136<span>/179</span></div><div class="stat-label" data-i18n="kpiHuman">Human surveillance evidence</div></div>
+        <div class="stat-card animal"><div class="stat-value">127<span>/179</span></div><div class="stat-label" data-i18n="kpiAnimal">Animal surveillance evidence</div></div>
+        <div class="stat-card cross"><div class="stat-value">108<span>/179</span></div><div class="stat-label" data-i18n="kpiCross">Cross-sector linkage evidence</div></div>
+        <div class="stat-card"><div class="stat-value">371<span>/537</span></div><div class="stat-label" data-i18n="kpiCells">Confirmed country-domain assessments</div></div>
+      </div>
+      <div class="section-heading"><div><div class="eyebrow" data-i18n="mapEyebrow">GEOGRAPHIC VIEW</div><h2 data-i18n="homeMapTitle">Explore the evidence map</h2></div><button class="text-button" type="button" id="openFullMap" data-i18n="openFullMap">Open full map →</button></div>
+      <div class="map-panel">
+        <div class="map-toolbar"><span data-i18n="mapLayer">Evidence domain</span><div class="domain-tabs" role="group" aria-label="Evidence domain"><button class="domain-tab-btn active" data-domain="human" type="button" data-i18n="domainHuman">Human surveillance</button><button class="domain-tab-btn" data-domain="animal" type="button" data-i18n="domainAnimal">Animal surveillance</button><button class="domain-tab-btn" data-domain="cross" type="button" data-i18n="domainCross">Cross-sector linkage</button></div></div>
+        <div id="homeMapSvgWrapper" class="map-svg-wrapper"><div id="homeMapSvgContainer"></div><div id="homeMapTooltip" class="map-tooltip" role="status"></div></div>
+        <div class="map-legend"><span><i class="legend-swatch confirmed-swatch"></i><span data-i18n="confirmed">Confirmed</span></span><span><i class="legend-swatch neutral-swatch"></i><span data-i18n="notConfirmed">Not confirmed under protocol</span></span><span><i class="legend-swatch nonstudy-swatch"></i><span data-i18n="nonStudy">Outside study</span></span></div>
+      </div>
+      <p class="interpretation-note" data-i18n="notConfirmedNote">Not confirmed under protocol does not establish absence of national surveillance.</p>
+    </section>
+    <section id="view-map" class="view-section" aria-labelledby="map-title">
+      <div class="page-heading"><div class="eyebrow" data-i18n="mapEyebrow">GEOGRAPHIC VIEW</div><h1 id="map-title" data-i18n="navMap">Global Map</h1><p data-i18n="mapIntro">Select a domain, then select a country to read its official evidence. Use the country search for places that are difficult to select on the map.</p></div>
+      <div class="map-panel"><div class="map-toolbar"><span data-i18n="mapLayer">Evidence domain</span><div class="domain-tabs" role="group" aria-label="Evidence domain"><button class="domain-tab-btn active" data-domain="human" type="button" data-i18n="domainHuman">Human surveillance</button><button class="domain-tab-btn" data-domain="animal" type="button" data-i18n="domainAnimal">Animal surveillance</button><button class="domain-tab-btn" data-domain="cross" type="button" data-i18n="domainCross">Cross-sector linkage</button></div><div class="zoom-controls"><button id="mapZoomIn" type="button" aria-label="Zoom in">+</button><button id="mapZoomOut" type="button" aria-label="Zoom out">−</button><button id="mapZoomReset" type="button" data-i18n="resetZoom">Reset</button></div></div><div id="globalMapSvgWrapper" class="map-svg-wrapper"><div id="globalMapSvgContainer"></div><div id="globalMapTooltip" class="map-tooltip" role="status"></div></div><div class="map-legend"><span><i class="legend-swatch confirmed-swatch"></i><span data-i18n="confirmed">Confirmed</span></span><span><i class="legend-swatch neutral-swatch"></i><span data-i18n="notConfirmed">Not confirmed under protocol</span></span><span><i class="legend-swatch nonstudy-swatch"></i><span data-i18n="nonStudy">Outside study</span></span></div></div>
+      <div class="island-bar"><strong data-i18n="smallPlaces">Small countries</strong><div id="globalSmallIslandChips" class="island-chips"></div></div><p class="interpretation-note" data-i18n="notConfirmedNote">Not confirmed under protocol does not establish absence of national surveillance.</p>
+    </section>
+    <section id="view-explorer" class="view-section" aria-labelledby="explorer-title">
+      <div class="page-heading"><div class="eyebrow" data-i18n="evidenceEyebrow">COUNTRY-LEVEL EVIDENCE</div><h1 id="explorer-title" data-i18n="navExplorer">Country Evidence</h1><p data-i18n="explorerIntro">Search the 179 study countries and open a profile to read supporting official evidence for each domain.</p></div>
+      <div class="explorer-filters"><label><span data-i18n="searchLabel">Country name or ISO3</span><input id="countrySearchInput" type="search" placeholder="Search countries"></label><label><span data-i18n="regionLabel">WHO region</span><select id="regionFilter"></select></label><label><span data-i18n="domainLabel">Domain</span><select id="domainFilter"></select></label><label><span data-i18n="statusLabel">Evidence status</span><select id="statusFilter"></select></label><button class="secondary-button" type="button" id="resetFiltersBtn" data-i18n="resetFilters">Clear filters</button></div>
+      <p class="result-count" id="explorerResultsCount"></p><div class="table-wrap"><table class="data-table"><thead><tr><th data-i18n="country">Country</th><th data-i18n="regionLabel">WHO region</th><th data-i18n="domainHuman">Human surveillance</th><th data-i18n="domainAnimal">Animal surveillance</th><th data-i18n="domainCross">Cross-sector linkage</th><th><span class="sr-only" data-i18n="profile">Profile</span></th></tr></thead><tbody id="explorerTableBody"></tbody></table></div>
+    </section>
+    <section id="view-mechanisms" class="view-section" aria-labelledby="linkage-title"><div class="page-heading"><div class="eyebrow" data-i18n="linkageEyebrow">DOCUMENTED MECHANISMS</div><h1 id="linkage-title" data-i18n="navLinkage">Cross-sector Linkage</h1><p data-i18n="linkageIntro">Among 108 countries with confirmed cross-sector linkage evidence, four prespecified mechanisms were assessed in the retained official evidence.</p></div><div id="mechanismsListContainer"></div><p class="interpretation-note" data-i18n="mechanismNote">Not documented does not establish that the mechanism is absent nationally.</p></section>
+    <section id="view-methods" class="view-section" aria-labelledby="methods-title"><div class="page-heading"><div class="eyebrow" data-i18n="methodsEyebrow">READING THE EVIDENCE</div><h1 id="methods-title" data-i18n="navMethods">Methods &amp; Interpretation</h1></div><div class="article-grid"><article><h2 data-i18n="scopeTitle">Study scope</h2><p data-i18n="scopeBody">The national evidence layer covers 179 countries and three domains, yielding 537 country-domain assessments.</p></article><article><h2 data-i18n="cutoffTitle">Evidence cutoff</h2><p data-i18n="cutoffBody">Official evidence eligible through 4 September 2026 was considered for this study snapshot.</p></article><article><h2 data-i18n="definitionsTitle">Domain definitions</h2><p data-i18n="humanDefinition">Human surveillance: national rabies notification, surveillance reporting, exposure or PEP registers, or surveillance-linked laboratory evidence.</p><p data-i18n="animalDefinition">Animal surveillance: national rabies notification, investigation, observation, testing, surveillance outputs, or a rabies-specific veterinary programme.</p><p data-i18n="crossDefinition">Cross-sector linkage: documented operational connection between human and animal rabies information. Confirmation in both sectors alone does not establish linkage.</p></article><article><h2 data-i18n="eligibilityTitle">Official-source eligibility</h2><p data-i18n="eligibilityBody">Evidence had to come from an identifiable national official authority, apply at national scope, fall within the eligible period, and provide retrievable content that directly met a domain criterion.</p></article><article><h2 data-i18n="interpretationTitle">Interpreting evidence status</h2><p data-i18n="confirmedDefinition">Confirmed means an eligible official source directly satisfied the prespecified criterion.</p><p data-i18n="notConfirmedDefinition">Not confirmed under protocol means no qualifying national-level official evidence was identified under the prespecified protocol by the evidence cutoff. It does not establish absence of national surveillance.</p></article><article><h2 data-i18n="mechanismDefinitionsTitle">X01–X04 definitions</h2><dl class="definition-list"><dt>X01</dt><dd data-i18n="x01">Institutionalised information sharing</dd><dt>X02</dt><dd data-i18n="x02">Human exposure triggers animal action</dd><dt>X03</dt><dd data-i18n="x03">Animal results feed back to human health</dd><dt>X04</dt><dd data-i18n="x04">Integrated human–animal information object</dd></dl><p data-i18n="mechanismNote">Not documented does not establish that the mechanism is absent nationally.</p></article></div></section>
+    <section id="view-about" class="view-section" aria-labelledby="about-title"><div class="page-heading"><div class="eyebrow" data-i18n="aboutEyebrow">ABOUT THIS RESOURCE</div><h1 id="about-title" data-i18n="navAbout">About</h1></div><div class="about-copy"><p class="lead" data-i18n="aboutBody">The Rabies Surveillance Evidence Observatory is an interactive companion to a global study of national rabies surveillance architecture and international reporting continuity. It provides country-level access to the official evidence used for the national surveillance evidence layer of the study.</p><p data-i18n="aboutCurrent">The current version reflects evidence eligible through 4 September 2026 and is not a live surveillance system.</p><p data-i18n="aboutCitation">This companion resource accompanies the current study manuscript. A publication citation will be added after formal publication.</p></div></section>
+  </main>
+  <div id="countryDrawerBackdrop" class="drawer-backdrop" hidden><section class="drawer-container" role="dialog" aria-modal="true" aria-labelledby="drawerCountryName"><div class="drawer-header"><div><div class="eyebrow" data-i18n="profileEyebrow">COUNTRY EVIDENCE PROFILE</div><h2 id="drawerCountryName"></h2><p id="drawerCountrySub"></p></div><button id="drawerCloseBtn" type="button" class="close-button" aria-label="Close profile">×</button></div><div id="drawerDomainsContainer" class="drawer-body"></div></section></div>
+  <footer class="site-footer"><div class="container"><span data-i18n="footer">Rabies Surveillance Evidence Observatory · Interactive companion to the current study manuscript</span><span data-i18n="cutoffBadge">Evidence cutoff: 4 September 2026</span></div></footer>
+  <script src="js/translations.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
